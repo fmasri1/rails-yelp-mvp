@@ -1,0 +1,17 @@
+<h1 class='m-2'>Restaurant Details</h1>
+<br>
+<%= link_to 'Back to list', restaurants_path, class: 'm-2 btn btn-primary' %>
+<br>
+<%= render 'restaurants/restaurant', restaurant: @restaurant, delete_link: true %>
+<br>
+<%# show reviews %>
+<div class='m-2 border-primary rounded'>
+  <h4 class='m-2'>Reviews</h4>
+  <ul>
+    <% @reviews.each do |review| %>
+    <li>
+      <span><%= review.content.capitalize %>. Rating: <%= review.rating %>.</span>
+    </li>
+    <% end %>
+  </ul>
+</div>

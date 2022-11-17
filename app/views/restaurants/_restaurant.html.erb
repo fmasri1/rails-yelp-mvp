@@ -1,0 +1,39 @@
+<% show_link ||= false %>
+<% delete_link ||= false %>
+
+<div id="<%= dom_id restaurant %>" class="border m-2 p-4 rounded">
+  <p>
+    <strong>Name:</strong>
+    <%= restaurant.name.capitalize %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= restaurant.address.capitalize %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= restaurant.category.capitalize %>
+  </p>
+
+  <p>
+    <%= link_to "Edit this restaurant", edit_restaurant_path(restaurant) %>
+  </p>
+
+    <p>
+    <%= link_to "Review this restaurant", new_restaurant_review_path(restaurant) %>
+  </p>
+
+  <% if show_link %>
+    <p>
+      <%= link_to 'Show this restaurant', restaurant %>
+    </p>
+  <% end %>
+
+  <% if delete_link %>
+    <p>
+      <%= link_to 'Delete this restaurant', restaurant, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </p>
+  <% end %>
+</div>
